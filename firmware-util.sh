@@ -15,7 +15,7 @@
 script_dir="$(dirname $(readlink -f $0))"
 
 #where the stuff is
-script_url="https://raw.githubusercontent.com/MrChromebox/scripts/main/"
+script_url="https://raw.githubusercontent.com/GarryStraitYT/cbfw-scripts/main/"
 
 #ensure output of system tools in en-us for parsing
 export LC_ALL=C
@@ -31,7 +31,7 @@ fi
 
 # clear screen / show banner
 printf "\ec"
-echo -e "\nMrChromebox Firmware Utility Script starting up"
+echo -e "\nULP Firmware Utility Script starting up\n\nThis Firmware Utility is based off of Mr. Chromebox's work, so please go support him!"
 
 #check for cmd line param, expired CrOS certs
 if ! curl -sLo /dev/null https://mrchromebox.tech/index.html || [[ "$1" = "-k" ]]; then
@@ -79,7 +79,7 @@ troubleshooting_msg=(
 )
 if [ "$prelim_setup_result" -ne 0 ]; then
     IFS=$'\n'
-    echo "MrChromebox Firmware Utility setup was unsuccessful" > /dev/stderr
+    echo "ULP Firmware Utility setup was unsuccessful" > /dev/stderr
     echo "${troubleshooting_msg[*]}" > /dev/stderr
     exit 1
 fi
@@ -90,7 +90,7 @@ trap 'check_unsupported' EXIT
 function check_unsupported() {
     if [ "$isUnsupported" = true ]; then
         IFS=$'\n'
-        echo "MrChromebox Firmware Utility didn't recognize your device" > /dev/stderr
+        echo "ULP Firmware Utility didn't recognize your device" > /dev/stderr
         echo "${troubleshooting_msg[*]}" > /dev/stderr
     fi
 }
