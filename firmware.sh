@@ -76,8 +76,8 @@ then email MrChromebox@gmail.com  and include a screenshot of the main menu."
 
     echo_yellow "
 NOTE: RW_LEGACY firmware cannot be used to run Windows. Period.
-If you are looking to run Windows, see the documentation on coolstar.org.
-MrChromebox does not provide any support for running Windows."
+If you are looking to run Windows, see the documentation on coolstar.org or in the ULP Discord server (discord.gg/EWNG5TnAsB).
+Neither MrChromebox nor the \"firmware gurus\" of ULP provide any support for running Windows."
         REPLY=""
         read -rep "Press Y to continue or any other key to return to the main menu. "
         [[ "$REPLY" = "y" || "$REPLY" = "Y" ]] || return
@@ -1009,7 +1009,7 @@ function menu_fwupdate() {
 function show_header() {
     printf "\ec"
     echo -e "${NORMAL}\n ChromeOS Device Firmware Utility Script ${script_date} ${NORMAL}"
-    echo -e "${NORMAL} (c) Mr Chromebox <mrchromebox@gmail.com> ${NORMAL}"
+    echo -e "${NORMAL} (c) Mr Chromebox <mrchromebox@gmail.com>. ULP thanks Mr Chromebox for his hard work. ${NORMAL}"
     echo -e "${MENU}*********************************************************${NORMAL}"
     echo -e "${MENU}**${NUMBER}     Device: ${NORMAL}${deviceDesc}"
     echo -e "${MENU}**${NUMBER} Board Name: ${NORMAL}${boardName^^}"
@@ -1022,7 +1022,7 @@ function show_header() {
         curr_mm=$(echo $fwDate | cut -f 1 -d '/')
         curr_dd=$(echo $fwDate | cut -f 2 -d '/')
         eval coreboot_file=$`echo "coreboot_uefi_${device}"`
-        date=$(echo $coreboot_file | grep -o "mrchromebox.*" | cut -f 2 -d '_' | cut -f 1 -d '.')
+        date=$(echo $coreboot_file | grep -o "unifiedlaptopplatform.*" | cut -f 2 -d '_' | cut -f 1 -d '.')
         uefi_yy=$(echo $date | cut -c1-4)
         uefi_mm=$(echo $date | cut -c5-6)
         uefi_dd=$(echo $date | cut -c7-8)
